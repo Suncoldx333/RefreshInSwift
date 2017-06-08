@@ -11,7 +11,7 @@ import UIKit
 class HeaderUseIndicator: RefreshView {
     private let indicatorObject : CustomIndicator
     
-    init(color : UIColor,height : CGFloat,action :  noParametersBlock) {
+    init(color : UIColor,height : CGFloat,action :  @escaping noParametersBlock) {
         
         self.indicatorObject = CustomIndicator.init(color: color)
         super.init(height: height, action: action)
@@ -29,5 +29,13 @@ class HeaderUseIndicator: RefreshView {
         
         indicatorObject.arrowLayer.position = CGPoint.init(x: self.bounds.midX, y: self.bounds.midY)
         indicatorObject.indicator.center = CGPoint.init(x: self.bounds.midX, y: self.bounds.midY)
+    }
+    
+    override func updateState(isNowRefreshing: Bool) {
+        indicatorObject.updateState(isRefrshing: isNowRefreshing)
+    }
+    
+    override func updateProcess(process: CGFloat) {
+        indicatorObject.updateProcess(process: process, isFooter: false)
     }
 }

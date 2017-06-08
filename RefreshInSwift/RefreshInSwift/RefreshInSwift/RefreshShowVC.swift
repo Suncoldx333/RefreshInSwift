@@ -14,8 +14,14 @@ class RefreshShowVC: UIViewController {
         super.viewDidLoad()
 
         initUI()
+        playRefrsh()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        refreshRat.beginRefrshInWidget()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,11 +48,11 @@ class RefreshShowVC: UIViewController {
     }
     
     func playRefrsh() {
-//        refreshRat.addIndicatorToHeader(color: hexColor(colorCode: 0x00c18b), height: 60) { 
-//            [unowned self]() in
-//            sleep(3)
-//            print("now end")
-//        }
+        refreshRat.addIndicatorToHeader(color: hexColor(colorCode: 0x00c18b), height: 60) { 
+            [unowned self]() in
+            sleep(3)
+            print("now end")
+        }
     }
     
     func changeOffset() {

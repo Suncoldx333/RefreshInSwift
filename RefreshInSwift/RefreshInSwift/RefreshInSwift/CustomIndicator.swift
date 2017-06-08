@@ -38,4 +38,18 @@ class CustomIndicator: NSObject {
         indicator.color = color
     }
     
+    func updateState(isRefrshing : Bool) {
+        arrowLayer.isHidden = isRefrshing
+        isRefrshing ? indicator.startAnimating() : indicator.stopAnimating()
+    }
+    
+    func updateProcess(process : CGFloat,isFooter : Bool) {
+        if isFooter {
+            
+        }else{
+            arrowLayer.transform = process == 1 ? CATransform3DMakeRotation(CGFloat.pi, 0, 0, 1) : CATransform3DIdentity
+        }
+
+    }
+    
 }
