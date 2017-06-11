@@ -17,7 +17,6 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     lazy var refreshTypeChooseTable: UITableView = {
@@ -60,6 +59,11 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: cellKeys.refreshTypeChoose)!
+        
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "Indicatior"
+            return cell
+        }
         
         cell.textLabel?.text = "hello"
         return cell

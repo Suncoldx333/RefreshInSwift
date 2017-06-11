@@ -66,10 +66,9 @@
 		186D0F4D1EE7A5940038CAC5 /* RefreshInSwift */ = {
 			isa = PBXGroup;
 			children = (
-				186D0F621EE7A78E0038CAC5 /* RefrshWidget */,
 				186D0F4E1EE7A5940038CAC5 /* AppDelegate.swift */,
-				186D0F501EE7A5940038CAC5 /* ViewController.swift */,
-				186D0F631EE7A8A40038CAC5 /* RefreshShowVC.swift */,
+				603C6DA61EED825500D710C8 /* Demo */,
+				186D0F621EE7A78E0038CAC5 /* RefrshWidget */,
 				186D0F601EE7A5E90038CAC5 /* GlobalDefine.swift */,
 				186D0F521EE7A5940038CAC5 /* Main.storyboard */,
 				186D0F551EE7A5940038CAC5 /* Assets.xcassets */,
@@ -88,6 +87,15 @@
 				186D0F6B1EE7DB410038CAC5 /* CustomIndicator.swift */,
 			);
 			name = RefrshWidget;
+			sourceTree = "<group>";
+		};
+		603C6DA61EED825500D710C8 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				186D0F501EE7A5940038CAC5 /* ViewController.swift */,
+				186D0F631EE7A8A40038CAC5 /* RefreshShowVC.swift */,
+			);
+			name = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

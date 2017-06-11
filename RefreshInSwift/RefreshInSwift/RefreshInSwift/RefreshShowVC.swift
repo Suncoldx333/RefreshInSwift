@@ -12,9 +12,7 @@ class RefreshShowVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         initUI()
-        playRefrsh()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -24,7 +22,6 @@ class RefreshShowVC: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     lazy var refreshRat: UITableView = {
@@ -35,31 +32,29 @@ class RefreshShowVC: UIViewController {
         createRat.dataSource = self
         createRat.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: cellKeys.none)
         
+        createRat.addIndicatorToHeader(height: HeaderZoneHeight, action: {
+            [unowned self] () in
+            self.pullEvent()
+        })
+        
         return createRat
     }()
     
     func initUI() {
+    
         self.view.backgroundColor = hexColor(colorCode: 0x00c18b).withAlphaComponent(0.2)
         self.view.addSubview(refreshRat)
         
-        let tapEvent : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(changeOffset))
-        self.view.addGestureRecognizer(tapEvent)
-        
-    }
-    
-    func playRefrsh() {
-        refreshRat.addIndicatorToHeader(color: hexColor(colorCode: 0x00c18b), height: 60) { 
-            [unowned self]() in
-            sleep(3)
-            print("now end")
-        }
-    }
-    
-    func changeOffset() {
-        refreshRat.contentOffset = CGPoint.init(x: 0, y: -64 - 60)
-        refreshRat.contentInset.top = 64 + 60
     }
 
+
+}
+
+extension RefreshShowVC {
+    func pullEvent() {
+        
+        
+    }
 }
 
 extension RefreshShowVC:UITableViewDelegate,UITableViewDataSource{

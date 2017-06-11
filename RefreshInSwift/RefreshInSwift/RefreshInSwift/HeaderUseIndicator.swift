@@ -9,15 +9,19 @@
 import UIKit
 
 class HeaderUseIndicator: RefreshView {
-    private let indicatorObject : CustomIndicator
+    private let indicatorObject : SystemIndicator
     
     init(color : UIColor,height : CGFloat,action :  @escaping noParametersBlock) {
         
-        self.indicatorObject = CustomIndicator.init(color: color)
+        
+        
+        self.indicatorObject = SystemIndicator.init(color: color)
         super.init(height: height, action: action)
         
-        self.layer.addSublayer(indicatorObject.arrowLayer)
+//        self.layer.addSublayer(indicatorObject.arrowLayer)
+        
         self.addSubview(indicatorObject.indicator)
+        self.addSubview(indicatorObject.customIndicator)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -12,12 +12,26 @@ typealias noParametersBlock = () -> Void
 
 let ScreenWidth : CGFloat = UIScreen.main.bounds.size.width
 let ScreenHeight : CGFloat = UIScreen.main.bounds.size.height
+
+let HeaderZoneHeight : CGFloat = 60
+
 public func hexColor(colorCode : Int) -> UIColor {
     let red   = ((colorCode & 0xFF0000) >> 16)
     let green = ((colorCode & 0xFF00) >> 8)
     let blue  = (colorCode & 0xFF)
     
     return UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: CGFloat(1))
+}
+
+enum IndicatorStyle : NSInteger {
+    case system = 1 ,
+    custom = 2
+}
+
+enum IndicatorLocationStyle : NSInteger{
+    case stayUp = 1,
+    keepMoving = 2,
+    stayDown = 4
 }
 
 struct cellKeys {

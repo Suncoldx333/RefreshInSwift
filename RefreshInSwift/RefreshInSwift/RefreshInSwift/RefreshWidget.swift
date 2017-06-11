@@ -16,7 +16,7 @@ extension UIScrollView {
         }
         set{
             objc_setAssociatedObject(self, &refreshKey.header, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            //get之后添加到subview，由于类型为RefreshView?，需判空，map可在对齐进行操作前判空
+            //get之后添加到subview，由于类型为RefreshView?，需判空，map可在对其进行操作前判空
             newValue.map { (header) -> Void in
                 self.insertSubview(header, at: 0)
             }
@@ -36,11 +36,11 @@ extension UIScrollView {
     }
     
     
-    func addIndicatorToHeader(color : UIColor,
+    func addIndicatorToHeader(color : UIColor = hexColor(colorCode: 0xe6e6e6),
                               height : CGFloat,
                               action : @escaping noParametersBlock) {
          refreshHeader = HeaderUseIndicator.init(color: color, height: height, action: action)
-        refreshHeader?.backgroundColor = hexColor(colorCode: 0x00c18b).withAlphaComponent(0.1)
+        refreshHeader?.backgroundColor = color
         
     }
     
